@@ -40,15 +40,13 @@ public class MainAlgorithm {
 
 
 
-public int CalculateLoss(HashMap<Integer,Integer> hash, int val_tobe_tested) {	 // val_tobe_tested will be array
-																				// for now let's get only 1 
+public int CalculateLoss(HashMap<Integer,Integer> hash, int val_tobe_tested) {	 // val_tobe_tested will be array for now let's get only 1 
 	
 		int total = 0;
 	
 		for(int i : original_pixels.keySet()) {
 			 System.out.printf("%d number of pixel in value: %d\n", original_pixels.get(i), i);
-			 int sq = (val_tobe_tested - i) * (val_tobe_tested - i); // we will get the corresponding k value here 
-			 															// according to our algorithm function
+			 int sq = (val_tobe_tested - i) * (val_tobe_tested - i); // we will get the corresponding k value here  according to our algorithm function
 			 total += (sq * original_pixels.get(i));
 		}
 	
