@@ -33,12 +33,11 @@ public class MainAlgorithm {
 		int val[] = {83};
 		System.out.printf( "Calculated Loss: %d\n" ,(NewAlgo.CalculateLoss(original_pixels, val)));
 		
-		
-	
-		//int optimization_val = read.nextInt(); // will be discarded later, because algorithm will internally assign it.
-		
-		
 		int[] opt_vals = NewAlgo.GenerateGreedyOpt(original_pixels, asked_value_count);
+		
+		for(int i=0; i<opt_vals.length; i++) {
+			System.out.printf("opt value %d: %d\n", i, opt_vals[i]);
+		}
 		System.out.printf( "Calculated Loss with Greedy Algorithm: %d\n" ,(NewAlgo.CalculateLoss(original_pixels, opt_vals)));
 		
 		
@@ -54,9 +53,6 @@ public class MainAlgorithm {
  	* * 
  	 * 
  */
-
-
-
 
 	
 public int CalculateLoss(HashMap<Integer,Integer> hash, int[] k_val_array) {	 
@@ -100,9 +96,16 @@ public int[] GenerateGreedyOpt (HashMap<Integer,Integer> hash, int allowed_k_num
 	Collections.sort(px_counts, Collections.reverseOrder());
 	int[] k_vals = new int[allowed_k_num];
 	
-	for(int i=0; i<allowed_k_num; i++) {
-		k_vals[i] = px_counts.get(i); 
+	for(int x=0; x<allowed_k_num; x++) {
+	for(int i : hash.keySet()) {
+		if(px_counts.get(x) == hash.get(i)) {	
+			k_vals[x] = i;
+		} 
+	
 	}
+	}
+	
+	
 	
 	
 	return k_vals;
@@ -112,7 +115,5 @@ public int[] GenerateGreedyOpt (HashMap<Integer,Integer> hash, int allowed_k_num
 
 
 }
-
-
 
 
