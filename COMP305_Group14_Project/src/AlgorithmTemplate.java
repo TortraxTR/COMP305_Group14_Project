@@ -14,7 +14,7 @@ public class MainAlgorithm {
 		
 		
 		 FileReader fr =
-			      new FileReader("./test1.txt");
+			      new FileReader("./text.txt");
 		
 		 Scanner sc = new Scanner(fr);
 		 
@@ -101,6 +101,8 @@ public int GenerateDFT(HashMap<Integer,Integer> hash, int allowed_k_num) {
 
 public int[] GenerateGreedyOpt (HashMap<Integer,Integer> hash, int allowed_k_num) { // returns greedy k values for opt.
 	
+	long startTime = System.nanoTime();
+	
 	List<Integer> px_counts = new ArrayList<Integer>();
 	
 	for(int i : hash.keySet()) {
@@ -118,6 +120,11 @@ public int[] GenerateGreedyOpt (HashMap<Integer,Integer> hash, int allowed_k_num
 	
 	}
 	}
+	long stopTime = System.nanoTime();
+	System.out.println("Greedy Algorithm exec time in nanoseconds:");
+	System.out.println(stopTime-startTime);
+	System.out.println("");
+	
 	return k_vals;
 } 
 
@@ -145,5 +152,6 @@ public int[] GenerateAlternateOpt(HashMap<Integer,Integer> old, HashMap<Integer,
 
 	return k_vals;
 }
+
 
 }
