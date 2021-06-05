@@ -14,7 +14,7 @@ public class MainAlgorithm {
 		
 		
 		 FileReader fr =
-			      new FileReader("./text.txt");
+			      new FileReader("./test1.txt");
 		
 		 Scanner sc = new Scanner(fr);
 		 
