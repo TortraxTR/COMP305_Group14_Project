@@ -6,7 +6,7 @@ public class MainAlgorithm {
 	public static int asked_value_count; 
 	int your_val;
 	public static HashMap<Integer, Integer> original_pixels = new HashMap<Integer, Integer>(); 
-	public static HashMap<Double, Integer> new_pixels = new HashMap<Double, Integer>(); 
+	public static HashMap<Integer, Integer> new_pixels = new HashMap<Integer, Integer>(); 
 	
 	public static void main(String[] args) { // todo auto-generated method stub 
 		
@@ -112,6 +112,29 @@ public int[] GenerateGreedyOpt (HashMap<Integer,Integer> hash, int allowed_k_num
 
 
 } 
+
+public int[] GenerateAlternateOpt(HashMap<Integer,Integer> old, HashMap<Integer, Integer> updated, int allowed_k_num) {
+	
+	int[] k_vals = new int[allowed_k_num];
+	
+	for(int i : old.keySet()) {
+		updated.put(i, i*old.get(i)); //possible conflict
+	}
+	
+	int valuesum = 0;
+	for (int k : updated.values()) {
+		valuesum+=k;
+	}
+	
+	int average = valuesum / updated.keySet().size();
+	
+	//Find a way to search for the closest values to average.
+	//Add the closest value's key to the return array.
+	//Iterate over the remaining values if more k values are asked.
+	
+
+	return k_vals;
+}
 
 
 }
